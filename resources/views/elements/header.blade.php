@@ -1,26 +1,7 @@
 <div class="ht-md-60 pd-x-50 bg-white d-flex" id="nav">
     <img src="{{ asset('img/cart.png') }}"  class="my-auto mr-4" width="50" height="50">
     <ul class="nav nav-outline flex-column flex-md-row" role="tablist">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="/" role="tab">Home</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">About</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">Services</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">Contact</a></li>
-        <li class="nav-item">
-            <a class="nav-link">
-                <form class="form-inline" action="">
-                    <input class="form-control form-control-sm mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-success btn-sm" type="submit">Search</button>
-                </form>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link"  href="{{ url('/product/shopping-cart') }}" data-toggle="tooltip" data-placement="top" title="Checkout item in cart">
-                <i class="menu-item-icon icon ion-android-cart tx-20 mr-1"></i>
-                <span class="badge badge-success cart">
-                    {{ session()->has('cart') ? session()->get('cart')->totalQty : 0 }}
-                </span>
-            </a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Track your orders</a></li>
         @guest
             <li class="nav-item">
@@ -49,5 +30,13 @@
                 </form>
             </li>
         @endguest
+        <li class="nav-item">
+            <a class="nav-link"  href="{{ url('/product/shopping-cart') }}" data-toggle="tooltip" data-placement="top" title="Checkout item in cart">
+                <i class="menu-item-icon icon ion-android-cart tx-20 mr-1"></i>
+                <span class="badge badge-success cart" id="cart">
+                    {{ session()->get('cart') ? session()->get('cart')->totalQty : 0 }}
+                </span>
+            </a>
+        </li>
     </ul>
 </div>

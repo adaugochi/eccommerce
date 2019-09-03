@@ -12,18 +12,7 @@
             <div class="signin-logo tx-center tx-28 tx-bold tx-inverse">
                 <div class="tx-center font-weight-bold">Login</div>
             </div>
-
-            @if (session()->has('message'))
-                <div class="alert alert-success text-center animated fadeIn">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>
-                        {!! session()->get('message') !!}
-                    </strong>
-                </div>
-            @endif
-
+            @include('partials.flash-messages')
             <div class="form-group">
                 <input id="email" type="text" placeholder="Enter Email/ Phone Number"
                        class="form-control @error('email') is-invalid @enderror"

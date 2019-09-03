@@ -5,18 +5,7 @@
 @section('content')
     @include('elements.header')
 
-    @if (session()->has('message'))
-        <div class="row pt-2">
-            <div class="col-md-3 mx-auto alert alert-success text-center animated fadeIn ">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>
-                    {!! session()->get('message') !!}
-                </strong>
-            </div>
-        </div>
-    @endif
+    @include('partials.flash-messages')
     <div class="br-pagebody">
         <div class="row">
             @foreach($orders as $order)

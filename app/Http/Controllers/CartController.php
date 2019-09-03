@@ -23,9 +23,11 @@ class CartController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
-
         $request->session()->put('cart', $cart);
-        return redirect('/');
+
+        $totalQty = session()->get('cart') ? session()->get('cart')->totalQty : 0;
+        return response()->json(['message' => $product->title.' added to cart.', 'totalQty' => $totalQty], 200);
+        //return redirect()->back()->with('message', $product->title . ' add to cart successfully');
     }
 
     public function getCart()

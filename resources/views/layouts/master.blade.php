@@ -71,7 +71,6 @@
     @endif
 
 </main>
-@yield('scripts')
 
 <script src="../lib/jquery/jquery.js"></script>
 <script src="{{ asset('lib/popper.js/popper.js') }}"></script>
@@ -94,14 +93,16 @@
 <script src="../js/temp_js/ResizeSensor.js"></script>
 <script src="../js/temp_js/dashboard.js"></script>
 
-<script type="text/javascript" src="{{ asset('js/app2.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
 <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{{ asset('js/app2.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/checkout.js') }}"></script>
 <script>
     CKEDITOR.replace( 'summary-ckeditor' );
 </script>
+
+@yield('scripts')
 </body>
 </html>

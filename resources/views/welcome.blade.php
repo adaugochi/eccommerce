@@ -4,20 +4,11 @@
 
 @section('content')
     @include('elements.header')
-    @if (session()->has('message'))
-        <div class="row pt-2">
-            <div class="col-md-3 mx-auto alert alert-success text-center animated fadeIn ">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>
-                    {!! session()->get('message') !!}
-                </strong>
-            </div>
-        </div>
-    @endif
+    @include('partials.flash-messages')
+    <div class="flash-message"></div>
     <div class="row row-sm br-pagebody">
         @foreach($products as $product)
+            <input hidden value="{{ $product->id }}" id="productId{{ $product->id }}">
         <div class="col-sm-6 col-lg-3 pb-5">
             <div class="card shadow-base bd-0">
                 <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
@@ -31,7 +22,7 @@
                     <p class="tx-11 mg-b-0 mg-t-15">Notice: {{ strip_tags($product->description) }}</p>
                 </div><!-- card-body -->
                 <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
-                    <a href="{{ url('add-to-cart', ['id' => $product->id]) }}" class="btn btn-sm btn-success">Add to Cart</a>
+                    <button id="addCart{{ $product->id }}" class="btn btn-sm btn-success">Add to Cart</button>
 
                     <div>
                         <span class="tx-11">Amount</span>
@@ -43,7 +34,43 @@
         @endforeach
     </div><!-- row -->
 
-
 @include('elements.footer')
+
+@endsection
+
+@section('scripts')
+
+<script>
+    $(document).ready(function () {
+        <?php foreach ($products as $product) {?>
+            $('#addCart{{$product->id}}').click(function () {
+                let product_id = $('#productId{{$product->id}}').val();
+
+                $.ajax({
+                    url: '/add-to-cart/'+product_id,
+                    type: 'get',
+                    data: {product_id: product_id},
+                    success: function (data) {
+                        let alertMsg = `<div class="row pt-2">
+                                        <div class="col-3 mx-auto alert alert-success text-center animated fadeIn ">
+                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <p class="">
+                                                <i class="icon ion-ios-checkmark-empty text-success tx-40"></i>
+                                                <span class="mr-3 lead">${data['message']}</span>
+                                            </p>
+                                        </div>
+                                    </div>`;
+
+                        $('.flash-message').html(alertMsg);
+                        $('#cart').html(data['totalQty']);
+                    }
+                });
+            });
+
+        <?php } ?>
+    });
+</script>
 
 @endsection

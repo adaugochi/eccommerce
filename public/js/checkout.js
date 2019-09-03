@@ -67,39 +67,3 @@ function stripeTokenHandler(token) {
     // Submit the form
     form.submit();
 }
-
-// Stripe.setPublishableKey('pk_test_iy15cB4bbShznBaA6Fu7cCJe00W10O4NxK');
-//
-// var form = $('#checkout');
-// $(document).ready(function() {
-//     form.submit(function (event) {
-//         event.preventDefault();
-//         console.log('1');
-//         $('#error').addClass('hidden');
-//         form.find('button').prop('disabled', true);
-//
-//         Stripe.card.createToken({
-//             cvc: $('#card-cvc').val(),
-//             exp_month: $('#card-exp-month').val(),
-//             exp_year: $('#card-exp-year').val(),
-//             name: $('#credit-card-name').val(),
-//         }, stripeResponseHandler);
-//         return false;
-//     });
-// });
-//
-// function stripeResponseHandler(status, response) {
-//     if (response.error) {
-//         $('#error').removeClass("hidden");
-//         $("#error").text(response.error.message);
-//         form.find('button').prop('disabled', false);
-//
-//
-//     } else {
-//         var token = response['id'];
-//
-//         form.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
-//
-//         form.get(0).submit();
-//     }
-// }

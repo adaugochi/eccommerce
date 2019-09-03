@@ -22,25 +22,7 @@
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
 
             <div class="table-wrapper">
-                @if (session()->has('success'))
-                    <div class="alert alert-success text-center animated fadeIn">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>
-                            {!! session()->get('success') !!}
-                        </strong>
-                    </div>
-                @elseif (session()->has('error'))
-                    <div class="alert alert-danger text-center animated fadeIn">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>
-                            {!! session()->get('error') !!}
-                        </strong>
-                    </div>
-                @endif
+                @include('partials.flash-messages')
                 <table id="datatable1" class="table display responsive nowrap">
                     <thead>
                         <tr>

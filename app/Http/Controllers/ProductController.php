@@ -89,7 +89,7 @@ class ProductController extends Controller
         ));
 
         if($product->save()){
-            return redirect('/product')->with(['success' => 'Product was successfully updated.']);
+            return redirect('/product')->with(['message' => 'Product was successfully updated.']);
         }else{
             return redirect('/product')->with(['error`' => 'Failed to update product']);
         }
