@@ -5,7 +5,6 @@
 @section('content')
     @include('elements.header')
 
-    @include('partials.flash-messages')
     <div class="br-pagebody">
         <div class="row">
             @foreach($orders as $order)
@@ -50,4 +49,8 @@
             @endforeach
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @include('partials.flash-messages')
 @endsection

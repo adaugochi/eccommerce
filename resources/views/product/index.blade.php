@@ -20,9 +20,7 @@
 
 
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
-
             <div class="table-wrapper">
-                @include('partials.flash-messages')
                 <table id="datatable1" class="table display responsive nowrap">
                     <thead>
                         <tr>
@@ -84,4 +82,8 @@
                 </table>
             </div>
         </div>
+@endsection
+
+@section('scripts')
+    @include('partials.flash-messages')
 @endsection

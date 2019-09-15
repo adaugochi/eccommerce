@@ -49,7 +49,7 @@ class ProductController extends Controller
         $product->created_by = auth()->user()->id;
 
         if($product->save()){
-            return redirect('/product')->with(['success' => 'Product was successfully created.']);
+            return redirect('/product')->with(['status' => 'Product was successfully created.']);
         }else{
             return redirect('/product')->with(['error`' => 'Failed to create new product']);
         }
@@ -89,7 +89,7 @@ class ProductController extends Controller
         ));
 
         if($product->save()){
-            return redirect('/product')->with(['message' => 'Product was successfully updated.']);
+            return redirect('/product')->with(['status' => 'Product was successfully updated.']);
         }else{
             return redirect('/product')->with(['error`' => 'Failed to update product']);
         }
@@ -101,7 +101,7 @@ class ProductController extends Controller
         unlink($image_path);
 
         if($product->delete()){
-            return redirect('/product')->with(['success' => 'Product was successfully deleted.']);
+            return redirect('/product')->with(['status' => 'Product was successfully deleted.']);
         }else{
             return redirect('/product')->with(['error`' => 'Failed to delete product']);
         }

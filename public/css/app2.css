@@ -134,3 +134,10 @@ a.status-active:hover {
   font-size: unset;
 }
 
+.btn, .btn:hover, .btn:focus, .btn:active, .btn:visited {
+  box-shadow: none;
+}
+
+.form-control, .form-control:focus, .form-control:active, .form-control:visited {
+  box-shadow: none; !important;
+}

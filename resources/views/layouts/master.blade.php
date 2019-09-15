@@ -45,13 +45,14 @@
     <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
     <link href="../lib/highlightjs/github.css" rel="stylesheet">
     <link href="../lib/datatables/jquery.dataTables.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('css/temp_css/bracket.css') }}">
 
     <!-- Styles -->
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/app2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -93,11 +94,10 @@
 <script src="../js/temp_js/ResizeSensor.js"></script>
 <script src="../js/temp_js/dashboard.js"></script>
 
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-
 <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="{{ asset('js/app2.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/checkout.js') }}"></script>
 <script>
     CKEDITOR.replace( 'summary-ckeditor' );
@@ -105,4 +105,5 @@
 
 @yield('scripts')
 </body>
+
 </html>

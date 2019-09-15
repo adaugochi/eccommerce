@@ -13,17 +13,6 @@
                 <div class="tx-center font-weight-bold">Forget Password</div>
             </div>
 
-            @if (session()->has('status'))
-                <div class="alert alert-success text-center animated fadeIn">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>
-                        {!! session()->get('status') !!}
-                    </strong>
-                </div>
-            @endif
-
             <div class="form-group">
                 <input id="email" type="text" placeholder="Enter Email/ Phone Number"
                        class="form-control @error('email') is-invalid @enderror"
@@ -39,4 +28,8 @@
     </div>
 
 </form>
+@endsection
+
+@section('scripts')
+    @include('partials.flash-messages')
 @endsection

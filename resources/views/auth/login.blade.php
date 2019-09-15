@@ -12,7 +12,6 @@
             <div class="signin-logo tx-center tx-28 tx-bold tx-inverse">
                 <div class="tx-center font-weight-bold">Login</div>
             </div>
-            @include('partials.flash-messages')
             <div class="form-group">
                 <input id="email" type="text" placeholder="Enter Email/ Phone Number"
                        class="form-control @error('email') is-invalid @enderror"
@@ -38,4 +37,8 @@
         </div>
     </div>
 </form>
+@endsection
+
+@section('scripts')
+    @include('partials.flash-messages')
 @endsection

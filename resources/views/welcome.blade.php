@@ -4,7 +4,6 @@
 
 @section('content')
     @include('elements.header')
-    @include('partials.flash-messages')
     <div class="flash-message"></div>
     <div class="row row-sm br-pagebody">
         @foreach($products as $product)
@@ -51,19 +50,7 @@
                     type: 'get',
                     data: {product_id: product_id},
                     success: function (data) {
-                        let alertMsg = `<div class="row pt-2">
-                                        <div class="col-3 mx-auto alert alert-success text-center animated fadeIn ">
-                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <p class="">
-                                                <i class="icon ion-ios-checkmark-empty text-success tx-40"></i>
-                                                <span class="mr-3 lead">${data['message']}</span>
-                                            </p>
-                                        </div>
-                                    </div>`;
-
-                        $('.flash-message').html(alertMsg);
+                        toastr.success(data['status']);
                         $('#cart').html(data['totalQty']);
                     }
                 });
@@ -72,5 +59,7 @@
         <?php } ?>
     });
 </script>
+
+@include('partials.flash-messages')
 
 @endsection
