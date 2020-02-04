@@ -9837,9 +9837,7 @@ textarea.parsley-error:active {
 }
 .pagination .page-item .page-link {
   color: #495057;
-  padding: 11px 0;
   width: 35px;
-  height: 40px;
   text-align: center;
 }
 .pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {

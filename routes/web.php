@@ -28,7 +28,7 @@ Route::post('/product/{product}', 'ProductController@update');
 Route::get('/product', 'ProductController@index');
 Route::get('/product/new', 'ProductController@create');
 Route::get('/product/{product}/edit', 'ProductController@edit');
-Route::get('/product/{product}/view', 'ProductController@show');
+Route::get('/product/view/{product}', 'ProductController@show');
 Route::delete('product/{product}', 'ProductController@delete');
 
 

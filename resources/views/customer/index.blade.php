@@ -17,7 +17,7 @@
 
     <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
         <div class="bd rounded table-responsive">
-            <table class="table table-bordered mg-b-0">
+            <table class="table table-bordered table-striped mg-b-0">
                 <thead>
                 <tr>
                     <th>S/N</th>

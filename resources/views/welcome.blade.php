@@ -25,7 +25,9 @@
 
                     <div>
                         <span class="tx-11">Amount</span>
-                        <h6 class="tx-danger font-weight-bold">${{ $product->amount }}</h6>
+                        <h6 class="tx-danger font-weight-bold">
+                            {{ $product->currency }} {{ $product->amount }}
+                        </h6>
                     </div>
                 </div>
             </div><!-- card -->

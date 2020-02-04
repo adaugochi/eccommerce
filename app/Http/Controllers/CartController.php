@@ -36,7 +36,7 @@ class CartController extends Controller
     {
         $counter = 1;
         if (!Session::has('cart')) {
-            return redirect()->back()->with(['status' => 'please click on an item to add to cart']);
+            return redirect()->back()->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -52,7 +52,7 @@ class CartController extends Controller
     {
         $user = auth()->user();
         if (!Session::has('cart')) {
-            return redirect()->back()->with(['status' => 'please click on an item to add to cart']);
+            return redirect()->back()->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -65,7 +65,7 @@ class CartController extends Controller
     public function addCheckOut(Request $request)
     {
         if (!Session::has('cart')) {
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);
+            return redirect('/')->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -114,7 +114,7 @@ class CartController extends Controller
     public function removeOneProduct(Request $request, Product $product)
     {
         if (!Session::has('cart')) {
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);
+            return redirect('/')->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -122,7 +122,7 @@ class CartController extends Controller
         $cart->removeOne($product->id);
         if (count($cart->products) > 0) {
             session()->forget('cart');
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);;
+            return redirect('/')->with(['info' => 'You have no item in your cart']);;
         }
 
         $request->session()->put('cart', $cart);
@@ -132,7 +132,7 @@ class CartController extends Controller
     public function removeAllProduct(Request $request, Product $product)
     {
         if (!Session::has('cart')) {
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);
+            return redirect('/')->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -140,7 +140,7 @@ class CartController extends Controller
         $cart->removeAll($product->id);
         if (count($cart->products) <= 0) {
             session()->forget('cart');
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);
+            return redirect('/')->with(['info' => 'You have no item in your cart']);
         }
 
         $request->session()->put('cart', $cart);
@@ -150,7 +150,7 @@ class CartController extends Controller
     public function increaseOneProduct(Request $request, Product $product)
     {
         if (!Session::has('cart')) {
-            return redirect('/')->with(['status' => 'please click on an item to add to cart']);
+            return redirect('/')->with(['info' => 'You have no item in your cart']);
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);

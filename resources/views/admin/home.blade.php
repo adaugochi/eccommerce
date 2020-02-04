@@ -9,7 +9,7 @@
 
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
             <div class="row row-sm">
-                <div class="col-sm-3 col-xl-3 col-md-6">
+                <div class="col-sm-4">
                     <div class="bg-success rounded overflow-hidden">
                         <div class="pd-25 d-flex align-items-center">
                             <i class="ion ion-android-contacts  tx-60 lh-0 tx-white op-7"></i>
@@ -22,7 +22,7 @@
                     </div>
                 </div><!-- col-3 -->
 
-                <div class="col-sm-3 col-xl-3 col-md-6 mg-t-20 mg-xl-t-0">
+                <div class="col-sm-4">
                     <div class="bg-br-primary rounded overflow-hidden">
                         <div class="pd-25 d-flex align-items-center">
                             <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
@@ -35,7 +35,7 @@
                     </div>
                 </div><!-- col-3 -->
 
-                <div class="col-sm-3 col-xl-3 col-md-6 mg-t-20 mg-xl-t-0">
+                <div class="col-sm-4">
                     <div class="bg-success rounded overflow-hidden">
                         <div class="pd-25 d-flex align-items-center">
                             <i class="ion ion-ios-book-outline tx-60 lh-0 tx-white op-7"></i>

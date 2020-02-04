@@ -7,12 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property mixed status
  * @property mixed created_at
+ * @property mixed title
+ * @property mixed description
+ * @property string|null image
+ * @property mixed amount
+ * @property mixed quantity
+ * @property int created_by
+ * @property string currency
  */
 class Product extends Model
 {
     protected $table = 'products';
 
-    protected $fillable = ['title', 'status', 'description', 'amount', 'image', 'quantity'];
+    protected $fillable = ['title', 'status', 'description', 'currency', 'amount', 'image', 'quantity'];
 
     public function status()
     {

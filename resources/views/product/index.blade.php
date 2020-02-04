@@ -7,7 +7,7 @@
             <div class="col-md-12 pd-30">
                 <div class="d-flex">
                     <h4 class="tx-gray-800 mg-b-5" style="font-size:  20px">Products</h4>
-                    <a class="btn btn-sm btn-outline-success ml-3" href="{{ url('product/new') }}">
+                    <a class="btn btn-sm btn-outline-success ml-3" href="{{ url('/product/new') }}">
                         <span class="fa fa-plus"></span> Add new product
                     </a>
                 </div>
@@ -20,8 +20,8 @@
 
 
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
-            <div class="table-wrapper">
-                <table id="datatable1" class="table display responsive nowrap">
+            <div class="bd rounded table-responsive">
+                <table class="table table-bordered table-striped mg-b-0">
                     <thead>
                         <tr>
                             <th class="wd-5p">S/N </th>
@@ -45,7 +45,7 @@
                             </td>
                             <td>{{ $product->getAttributeCreatedAt() }}</td>
                             <td>
-                                <a href="/product/{{ $product->id }}/view" class="tx-dark pr-1"><i class="icon ion-eye tx-20"></i></a>
+                                <a href="{{ url('/product/view/'. $product->id) }}" class="tx-dark pr-1"><i class="icon ion-eye tx-20"></i></a>
                                 <a href="/product/{{ $product->id }}/edit" class="tx-dark pr-1"><i class="icon ion-edit tx-20"></i></a>
                                 <a href="#" class="tx-dark" data-toggle="modal" data-target="#modalDelete_{{ $product->id }}">
                                     <i class="icon ion-trash-a tx-20"></i>
@@ -81,6 +81,8 @@
                     </tbody>
                 </table>
             </div>
+
+            {{ $products->render() }}
         </div>
 @endsection
 

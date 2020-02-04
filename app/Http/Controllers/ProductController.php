@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Currency;
 use App\Product;
 use App\Status;
 use Illuminate\Http\Request;
@@ -15,13 +16,14 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(5);
         return view('product.index', compact('products'));
     }
 
     public function create()
     {
-        return view('product.new');
+        $currencies = Currency::all();
+        return view('product.new', compact('currencies'));
     }
 
     public function store(Request $request, Product $product)
@@ -31,7 +33,8 @@ class ProductController extends Controller
             'image' => 'required|image',
             'description' => 'required',
             'quantity' => 'required',
-            'amount' => 'required'
+            'currency' => 'required',
+            'amount' => 'required|numeric'
         ]);
 
         if ($request->hasFile('image')) {
@@ -45,6 +48,7 @@ class ProductController extends Controller
         $product->image = $filename;
         $product->amount = $request->amount;
         $product->quantity = $request->quantity;
+        $product->currency = $request->currency;
         $product->status = Status::IN_STOCK;
         $product->created_by = auth()->user()->id;
 
@@ -72,7 +76,8 @@ class ProductController extends Controller
             'image' => 'image',
             'description' => 'required',
             'quantity' => 'required',
-            'amount' => 'required'
+            'currency' => 'required',
+            'amount' => 'required|numeric'
         ]);
 
         if ($request->hasFile('image')) {
