@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
             <div class="bd rounded table-responsive">
                 <table class="table table-bordered table-striped mg-b-0">
@@ -45,7 +44,7 @@
                             </td>
                             <td>{{ $product->getAttributeCreatedAt() }}</td>
                             <td>
-                                <a href="{{ url('/product/view/'. $product->id) }}" class="tx-dark pr-1"><i class="icon ion-eye tx-20"></i></a>
+                                <a href="{{ route('view-product', $product->id) }}" class="tx-dark pr-1"><i class="icon ion-eye tx-20"></i></a>
                                 <a href="/product/{{ $product->id }}/edit" class="tx-dark pr-1"><i class="icon ion-edit tx-20"></i></a>
                                 <a href="#" class="tx-dark" data-toggle="modal" data-target="#modalDelete_{{ $product->id }}">
                                     <i class="icon ion-trash-a tx-20"></i>

@@ -24,12 +24,12 @@ Route::get('/admin/home', 'AdminController@index');
 Route::get('/customer', 'AdminController@getCustomer');
 
 Route::post('/product', 'ProductController@store');
-Route::post('/product/{product}', 'ProductController@update');
+Route::post('/product/{product}', 'ProductController@update')->name('update-product');
 Route::get('/product', 'ProductController@index');
-Route::get('/product/new', 'ProductController@create');
-Route::get('/product/{product}/edit', 'ProductController@edit');
-Route::get('/product/view/{product}', 'ProductController@show');
-Route::delete('product/{product}', 'ProductController@delete');
+Route::get('/product/new', 'ProductController@create')->name('add-product');
+Route::get('/product/{product}/edit', 'ProductController@edit')->name('edit-product');
+Route::get('/product/view/{product}', 'ProductController@show')->name('view-product');
+Route::delete('product/{product}', 'ProductController@delete')->name('delete-product');
 
 
 Route::get('/remove-one/{product}', 'CartController@removeOneProduct');
