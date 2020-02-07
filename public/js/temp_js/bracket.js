@@ -170,16 +170,16 @@
 
 
   // custom scrollbar style
-  $('.overflow-y-auto').perfectScrollbar();
+  // $('.overflow-y-auto').perfectScrollbar();
 
   // jquery ui datepicker
-  $('.datepicker').datepicker();
-
-  // switch button
-  $('.switch-button').switchButton();
-
-  // peity charts
-  $('.peity-bar').peity('bar');
+  // $('.datepicker').datepicker();
+  //
+  // // switch button
+  // $('.switch-button').switchButton();
+  //
+  // // peity charts
+  // $('.peity-bar').peity('bar');
 
   // highlight syntax highlighter
   $('pre code').each(function(i, block) {

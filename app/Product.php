@@ -26,6 +26,11 @@ class Product extends Model
         return $this->hasOne(Status::class);
     }
 
+    public function currency()
+    {
+        return $this->hasOne(Currency::class);
+    }
+
     public function convertSlugToText()
     {
         $text = str_replace("-", " ", $this->status);

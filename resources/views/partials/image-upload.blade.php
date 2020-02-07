@@ -7,7 +7,10 @@
                 <div class="form-group field-upload_image required has-error">
                     <label class="image-label" for="upload_image">
                         <div class="image-placeholder">Click here to choose an image</div>
-                        <div id="uploaded_image"></div>
+                        <input type="hidden" class="image-url" name="image_url" value="">
+                        <div id="uploaded_image">
+                            <img src="">
+                        </div>
                     </label>
                     <input type="hidden" name="image" value="">
                     <input type="file" id="upload_image" class="image-input" name="image"

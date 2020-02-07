@@ -61,7 +61,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('product.edit', compact('product'));
+        $currencies = Currency::all();
+        return view('product.edit', compact('product', 'currencies'));
     }
 
     public function show(Product $product)

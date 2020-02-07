@@ -6,43 +6,37 @@
     @include('elements.header')
     <div class="row row-sm br-pagebody">
         <div class="col-lg-6 col-md-12 mx-auto">
-            <div class="card shadow-base bd-0">
+            <div class="card shadow-base ">
                 <div class="card-header bg-transparent pd-20">
                     <h6 class="card-title tx-uppercase tx-center tx-12 mg-b-0">List of Item in Cart</h6>
                 </div><!-- card-header -->
-                <table class="table table-responsive mg-b-0 tx-12">
+                <table class="table table-striped tx-12">
                     <thead>
+                    <?php $fields = ['S/N', 'Title', 'Quantity', 'Amount', 'Action']; ?>
                     <tr class="tx-10">
-                        <th class="wd-10p pd-y-5">S/N</th>
-                        <th class="pd-y-5">Title</th>
-                        <th class="pd-y-5">Quantity</th>
-                        <th class="pd-y-5">Amount</th>
-                        <th class="pd-y-5">Action</th>
+                        @foreach($fields as $field)
+                            <th class="">{{ $field }}</th>
+                        @endforeach
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($products as $key => $product)
                         <tr>
-                            <td>
-                                {{ $counter++ }}
-                            </td>
-                            <td>
-                                {{ $product['title'] }}
-                            </td>
-                            <td>
-                                <span class="mr-5">{{ $product['quantity'] }}</span>
-                            </td>
-                            <td class="tx-success">
-                                ${{ $product['amount'] }}
-                            </td>
+                            <td>{{ $counter++ }}</td>
+                            <td>{{ $product['title'] }}</td>
+                            <td><span class="mr-5">{{ $product['quantity'] }}</span></td>
+                            <td class="tx-success">${{ $product['amount'] }}</td>
                             <td class="cart-action">
-                                <a href="#" class="status status-delete" data-toggle="modal" data-target="#modalOne_{{ $product['product']['id'] }}">
+                                <a href="#" class="status status-delete" data-toggle="modal"
+                                   data-target="#modalOne_{{ $product['product']['id'] }}">
                                     <span class="icon ion-minus tx-15"></span> One
                                 </a>
-                                <a href="#" class="status status-delete" data-toggle="modal" data-target="#modalAll_{{ $product['product']['id'] }}">
+                                <a href="#" class="status status-delete" data-toggle="modal"
+                                   data-target="#modalAll_{{ $product['product']['id'] }}">
                                     <span class="icon ion-minus tx-15"></span> All
                                 </a>
-                                <a href="#" class="status status-active" data-toggle="modal" data-target="#modalInc_{{ $product['product']['id'] }}">
+                                <a href="#" class="status status-active" data-toggle="modal"
+                                   data-target="#modalInc_{{ $product['product']['id'] }}">
                                     <span class="icon ion-plus-round tx-15"></span> One
                                 </a>
                             </td>
@@ -68,7 +62,8 @@
                                 </div>
                             </div>
                             <!--Delete All Modal -->
-                            <div class="modal fade" id="modalAll_{{ $product['product']['id'] }}" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+                            <div class="modal fade" id="modalAll_{{ $product['product']['id'] }}" role="dialog"
+                                 tabindex="-1" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog modal-md">
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -88,7 +83,8 @@
                                 </div>
                             </div>
                             <!--Increase By One Modal -->
-                            <div class="modal fade" id="modalInc_{{ $product['product']['id'] }}" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+                            <div class="modal fade" id="modalInc_{{ $product['product']['id'] }}" role="dialog"
+                                 tabindex="-1" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog modal-md">
                                     <!-- Modal content-->
                                     <div class="modal-content">

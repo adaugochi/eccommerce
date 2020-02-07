@@ -33,15 +33,6 @@ $(function(){
     }
 });
 
-$('#datatable1').DataTable({
-    responsive: true,
-    language: {
-        searchPlaceholder: 'Search...',
-        sSearch: '',
-        lengthMenu: '_MENU_ items/page',
-    }
-});
-
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }

@@ -56,13 +56,13 @@
                         <div class="card-header bg-transparent pd-20">
                             <h6 class="card-title tx-uppercase tx-12 mg-b-0">List of Major Customers</h6>
                         </div><!-- card-header -->
-                        <table class="table table-responsive mg-b-0 tx-12">
+                        <table class="table mg-b-0 tx-12">
                             <thead>
+                            <?php $fields = ['', 'Name', 'Total amount of Purchase', 'Date']; ?>
                             <tr class="tx-10">
-                                <th class="wd-10p pd-y-5">&nbsp;</th>
-                                <th class="pd-y-5">Name</th>
-                                <th class="pd-y-5">Total amount of Purchase</th>
-                                <th class="pd-y-5">Date</th>
+                                @foreach($fields as $field)
+                                    <th class="pd-y-5">{{ $field }}</th>
+                                @endforeach
                             </tr>
                             </thead>
                             <tbody>

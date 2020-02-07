@@ -164,14 +164,6 @@ a.status-active:hover {
   font-weight: 400;
 }
 
-/*.image-upload .has-error .image-label {*/
-  /*border-color: #dc3545;*/
-/*}*/
-
-/*.image-upload .has-success .image-label {*/
-  /*border-color: #28a745;*/
-/*}*/
-
 .image-upload .image-placeholder {
   color: #555;
   text-align: center;

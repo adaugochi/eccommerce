@@ -19,52 +19,7 @@
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
             <form method="post" action="/product/{{ $product->id }}" enctype="multipart/form-data">
                 @csrf
-                <div class="row pb-3">
-                    <div class="col-md-5">
-                        <label class="font-weight-bold tx-dark">Title</label>
-                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
-                               value="{{ $product->title }}">
-                        @include('elements.error', ['fieldName' => 'title'])
-                    </div>
-                    <div class="col-md-5">
-                        <label class="font-weight-bold tx-dark">Amount</label>
-                        <input type="text" class="form-control @error('amount') is-invalid @enderror"
-                               value="{{ $product->amount }}" name="amount">
-                        @include('elements.error', ['fieldName' => 'amount'])
-                    </div>
-                </div>
-
-                <div class="row pb-3">
-                    <div class="col-md-5">
-                        <label class="font-weight-bold tx-dark">Image</label>
-                        <div class="input-container">
-                            <input type="file" name="image" value="{{ $product->image }}"
-                                   class="form-control pt-2 form-control-sm @error('image') is-invalid @enderror">
-                            @include('elements.error', ['fieldName' => 'image'])
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <label class="font-weight-bold tx-dark">Quantity</label>
-                        <input type="number" value="{{ $product->quantity }}" name="quantity"
-                               class="form-control @error('quantity') is-invalid @enderror">
-                        @include('elements.error', ['fieldName' => 'quantity'])
-                    </div>
-                </div>
-
-                <div class="row pb-4">
-                    <div class="col-md-10">
-                        <label class="font-weight-bold tx-dark">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror"
-                                  id="summary-ckeditor" name="description">
-                            {{ strip_tags($product->description)}}
-                        </textarea>
-                        @include('elements.error', ['fieldName' => 'description'])
-                    </div>
-                </div>
-
-                <button class="btn btn-success">
-                    Update Product
-                </button>
+                @include('partials.product-form', ['isEdit' => true])
             </form>
         </div>
 

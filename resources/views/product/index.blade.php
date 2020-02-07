@@ -8,7 +8,7 @@
                 <div class="d-flex">
                     <h4 class="tx-gray-800 mg-b-5" style="font-size:  20px">Products</h4>
                     <a class="btn btn-sm btn-outline-success ml-3" href="{{ url('/product/new') }}">
-                        <span class="fa fa-plus"></span> Add new product
+                        <span class="fa fa-plus"></span> Add Product
                     </a>
                 </div>
                 <ol class="breadcrumb">
@@ -21,14 +21,12 @@
         <div class="br-pagebody mg-t-5 pd-x-30 mt-5">
             <div class="bd rounded table-responsive">
                 <table class="table table-bordered table-striped mg-b-0">
+                    <?php $fields = ['S/N', 'Title', 'Description', 'Status', 'Created At', 'Action']; ?>
                     <thead>
                         <tr>
-                            <th class="wd-5p">S/N </th>
-                            <th class="wd-20p">Title</th>
-                            <th class="wd-30p">Description</th>
-                            <th class="wd-15p">Status</th>
-                            <th class="wd-20p">Created At</th>
-                            <th class="wd-10p">Action</th>
+                            @foreach($fields as $field)
+                                <th class="wd-5p">{{ $field }}</th>
+                            @endforeach
                         </tr>
                     </thead>
                     <tbody>
