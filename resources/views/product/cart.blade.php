@@ -3,7 +3,6 @@
 @section('title', 'Welcome')
 
 @section('content')
-    @include('elements.header')
     <div class="row row-sm br-pagebody">
         <div class="col-lg-6 col-md-12 mx-auto">
             <div class="card shadow-base ">

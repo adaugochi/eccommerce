@@ -59,7 +59,7 @@ class CartController extends Controller
         $quantity = $cart->totalQty;
         $amount = $cart->totalAmt;
 
-        return view('product.checkout', compact('quantity', 'amount', 'products', 'user'));
+        return view('product.checkout', compact('quantity', 'amount', 'user'));
     }
 
     public function addCheckOut(Request $request)
@@ -104,7 +104,7 @@ class CartController extends Controller
             auth()->user()->orders()->save($order);
 
         } catch (\Exception $e) {
-            return redirect('product/check-out')->with('error', $e->getstatus());
+            return redirect('product/check-out')->with('error', $e->getMessage());
         }
 
         Session::forget('cart');

@@ -16,7 +16,9 @@
             </li>
         @else
             <li class="nav-item">
-                <a href="#" class="nav-link">{{ Auth::user()->name }}</a>
+                <a href="{{ auth()->user()->is_admin ? url('/admin/home') : url("/home")}}" class="nav-link">
+                    {{ Auth::user()->name }}
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"

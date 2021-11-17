@@ -3,7 +3,6 @@
 @section('title', 'Welcome')
 
 @section('content')
-    @include('elements.header')
 
     <div class="br-pagebody">
         <div class="row">

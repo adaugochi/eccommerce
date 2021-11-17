@@ -34,7 +34,7 @@ class ProductController extends Controller
             'description' => 'required',
             'quantity' => 'required',
             'currency' => 'required',
-            'amount' => 'required|numeric'
+            'amount' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
@@ -74,11 +74,10 @@ class ProductController extends Controller
     {
         $validateData =  $request->validate([
             'title' => 'required',
-            'image' => 'image',
             'description' => 'required',
             'quantity' => 'required',
             'currency' => 'required',
-            'amount' => 'required|numeric'
+            'amount' => 'required'
         ]);
 
         if ($request->hasFile('image')) {

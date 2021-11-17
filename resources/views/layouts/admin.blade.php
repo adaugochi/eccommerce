@@ -33,9 +33,9 @@
         <title> @yield('title') </title>
     @else
         <title> @yield('title') | {{ Auth::user()->name }}</title>
-    @endguest
+@endguest
 
-    <!-- vendor css -->
+<!-- vendor css -->
     <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="{{ asset('lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
     <link href="../lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
@@ -49,9 +49,15 @@
 <body>
 
 <main>
-    @include('elements.header')
-    @yield('content')
-    @include('elements.footer')
+        <?php $user = auth()->user(); ?>
+
+        @include('elements.sidebar')
+        @include('elements.admin-header')
+        <div class="br-mainpanel">
+            @yield('content')
+
+            @include('elements.footer')
+        </div>
 
 </main>
 

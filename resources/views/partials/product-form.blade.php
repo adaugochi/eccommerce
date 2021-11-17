@@ -17,8 +17,12 @@
                         <select class="form-control tx-12 text_field @error('currency') is-invalid @enderror"
                                 data-placeholder="Please choose one" name="currency" >
                             <option label="Please choose one"></option>
+                            @php $cur = $isEdit ? $product->currency : old('currency'); @endphp
                             @foreach($currencies as $currency)
-                                <option value="{{ $currency->symbol }}">{{ $currency->name }}</option>
+                                <option value="{{ $currency->symbol }}"
+                                    {{ $cur  == $currency->symbol ? 'selected="selected"' : '' }}>
+                                    {{ $currency->name }}
+                                </option>
                             @endforeach
                         </select>
                         @include('elements.error', ['fieldName' => 'currency'])
@@ -28,7 +32,7 @@
                 <div class="row pb-3">
                     <div class="col-md-6">
                         <label class="font-weight-bold tx-dark">Amount</label>
-                        <input type="text" name="title" class="form-control @error('amount') is-invalid @enderror"
+                        <input type="number" name="amount" class="form-control @error('amount') is-invalid @enderror"
                                value="{{ $isEdit ? $product->amount : old('amount') }}">
                         @include('elements.error', ['fieldName' => 'amount'])
                     </div>
@@ -44,8 +48,7 @@
                     <div class="col-12">
                         <label class="font-weight-bold tx-dark">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror"
-                                  rows="5" name="description">
-                            {{ $isEdit ? trim(strip_tags($product->description)) : old('description') }}</textarea>
+                                  rows="5" name="description">{{ $isEdit ? trim(strip_tags($product->description)) : old('description') }}</textarea>
                         @include('elements.error', ['fieldName' => 'description'])
                     </div>
                 </div>

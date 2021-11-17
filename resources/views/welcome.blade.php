@@ -3,7 +3,7 @@
 @section('title', 'Welcome')
 
 @section('content')
-    @include('elements.header')
+
     <div class="flash-message"></div>
     <div class="row row-sm br-pagebody">
         @foreach($products as $product)
@@ -34,8 +34,6 @@
         </div><!-- col-3 -->
         @endforeach
     </div><!-- row -->
-
-@include('elements.footer')
 
 @endsection
 
